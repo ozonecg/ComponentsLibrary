@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/">
-        <file>main.qml</file>
+        <file>test.qml</file>
+        <file>qml/OzoneCG/Revealer.qml</file>
+        <file>qml/OzoneCG/qmldir</file>
+        <file>qml/OzoneCG/ImageSequence.qml</file>
     </qresource>
 </RCC>

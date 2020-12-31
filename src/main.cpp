@@ -26,6 +26,8 @@ int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
-    QQmlApplicationEngine engine("qrc:/main.qml");
+    QQmlApplicationEngine engine;
+    engine.addImportPath("qrc:/qml");
+    engine.load("qrc:/test.qml");
     return app.exec();
 }
