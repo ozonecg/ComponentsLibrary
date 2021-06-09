@@ -1,0 +1,53 @@
+MetaInfo {
+    Type {
+        name: "OzoneCG.Countdown"
+        icon: "icons/countdown.png"
+
+        ItemLibraryEntry {
+            name: "Countdown"
+            category: "OzoneCG Components"
+            libraryIcon: "icons/countdown.png"
+            version: "1.0"
+            requiredImport: "OzoneCG"
+        }
+    }
+
+    Type {
+        name: "OzoneCG.CountdownHelper"
+        icon: "icons/countdown.png"
+
+        ItemLibraryEntry {
+            name: "Countdown Helper"
+            category: "OzoneCG Components"
+            libraryIcon: "icons/countdown.png"
+            version: "1.0"
+            requiredImport: "OzoneCG"
+        }
+    }
+
+    Type {
+        name: "OzoneCG.ImageSequence"
+        icon: "icons/video.png"
+
+        ItemLibraryEntry {
+            name: "Image Sequence"
+            category: "OzoneCG Components"
+            libraryIcon: "icons/video.png"
+            version: "1.0"
+            requiredImport: "OzoneCG"
+        }
+    }
+
+    Type {
+        name: "OzoneCG.Revealer"
+        icon: "icons/revealer.png"
+
+        ItemLibraryEntry {
+            name: "Revealer"
+            category: "OzoneCG Components"
+            libraryIcon: "icons/revealer.png"
+            version: "1.0"
+            requiredImport: "OzoneCG"
+        }
+    }
+}

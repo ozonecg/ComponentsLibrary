@@ -1,8 +1,16 @@
 <RCC>
     <qresource prefix="/">
         <file>test.qml</file>
-        <file>qml/OzoneCG/Revealer.qml</file>
+        <file>RevealerDemo.qml</file>
         <file>qml/OzoneCG/qmldir</file>
+        <file>qml/OzoneCG/plugins.qmltypes</file>
+        <file>qml/OzoneCG/designer/RevealerSpecifics.qml</file>
+        <file>qml/OzoneCG/designer/ozonecg.metainfo</file>
+        <file>qml/OzoneCG/Revealer.qml</file>
         <file>qml/OzoneCG/ImageSequence.qml</file>
+        <file>qml/OzoneCG/Countdown.qml</file>
+        <file>qml/OzoneCG/AnimatedCountdown.qml</file>
+        <file>qml/OzoneCG/CountdownHelper.qml</file>
+        <file>qml/OzoneCG/FontText.qml</file>
     </qresource>
 </RCC>

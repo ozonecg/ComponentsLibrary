@@ -20,76 +20,42 @@
 
 import QtQuick 2.15
 import QtQuick.Window 2.15
-import QtQuick.Timeline 1.0
-
 import OzoneCG 1.0
+import QtQuick.Timeline 1.0
+import Qt.labs.calendar 1.0
+
 
 Window {
     id: window
     visible: true
-    width: 640
-    height: 480
+    color: "black"
+    width: 800
+    height: 600
     title: qsTr("Ozone CG")
 
-    Revealer {
-        id: revealer
-        x: 123
-        y: 128
-        width: 394
-        height: 182
-
-        revealConcealType: "Fade"
-        revealState: "STAGE"
-
-        Text {
-            id: text1
-            x: 59
-            y: 44
-            width: 276
-            height: 94
-            color: "#0f95d2"
-            text: qsTr("OzoneCG")
-            font.pixelSize: 60
-            font.underline: false
-            font.italic: true
-            font.bold: true
-        }
+    RevealerDemo {
+        id: revealerDemo
+        anchors.fill: parent
     }
 
-    Timeline {
-        id: timeline
-        animations: [
-            TimelineAnimation {
-                id: timelineAnimation
-                duration: 10000
-                loops: 1
-                running: true
-                to: 249
-                from: 0
-            }
-        ]
-        startFrame: 0
-        endFrame: 249
-        enabled: true
 
-        KeyframeGroup {
-            target: revealer
-            property: "revealState"
-            Keyframe {
-                value: "IN"
-                frame: 25
-            }
 
-            Keyframe {
-                value: "OUT"
-                frame: 75
-            }
-        }
-    }
+
+
+
+
+
+
 }
+
+
+
+
+
+
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}D{i:3}
+    D{i:0;formeditorZoom:0.33}D{i:2}
 }
 ##^##*/

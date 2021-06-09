@@ -19,18 +19,19 @@
  */
 
 
-import QtQuick 2.12
+import QtQuick 2.15
 
 Item {
     id: self
 
-    property string revealState: ""
+    property string revealState: " "
 
     property string revealConcealType: "Fade"
     property string revealType: revealConcealType
     property string concealType: revealConcealType
     property int revealDuration: 250
     property int concealDuration: 250
+    property real revealFactor: 10
 
     property var child: children.length ? children[0] : null
 
@@ -40,6 +41,21 @@ Item {
     state: (revealState == "OUT" ? concealType : revealType) + "_" + revealState
 
     clip: true
+
+    function stage()
+    {
+        revealState = "STAGE"
+    }
+
+    function inn()
+    {
+        revealState = "IN"
+    }
+
+    function out()
+    {
+        revealState = "OUT"
+    }
 
     states: [
         State {
@@ -85,7 +101,7 @@ Item {
             name: "SlideRight_STAGE"
             PropertyChanges {
                 target: child
-                x: -(child.x + child.width)
+                x: -self.width
                 explicit: true
             }
         },
@@ -124,7 +140,7 @@ Item {
             name: "SlideDown_STAGE"
             PropertyChanges {
                 target: child
-                y: -(child.y + child.height)
+                y: -self.height
                 explicit: true
             }
         },
@@ -132,6 +148,7 @@ Item {
             name: "SlideDown_IN"
             PropertyChanges {
                 target: child
+                explicit: true
             }
         },
         State {
@@ -301,6 +318,46 @@ Item {
         State {
             name: "WipeVCenter_OUT"
             extend: "WipeVCenter_STAGE"
+        },
+
+        State {
+            name: "ZoomIn_STAGE"
+            PropertyChanges {
+                target: child
+                scale: 0.0
+                explicit: true
+            }
+        },
+        State {
+            name: "ZoomIn_IN"
+            PropertyChanges {
+                target: child
+            }
+        },
+        State {
+            name: "ZoomIn_OUT"
+            extend: "ZoomIn_STAGE"
+        },
+
+        State {
+            name: "ZoomOut_STAGE"
+            PropertyChanges {
+                target: child
+                scale: revealFactor
+                visible: false
+                explicit: true
+            }
+        },
+        State {
+            name: "ZoomOut_IN"
+            PropertyChanges {
+                target: child
+                visible: true
+            }
+        },
+        State {
+            name: "ZoomOut_OUT"
+            extend: "ZoomOut_STAGE"
         }
     ]
 
@@ -511,6 +568,51 @@ Item {
                 targets: [self, child]
                 properties: "y,height"
                 duration: concealDuration
+            }
+        },
+
+        Transition {
+            from: "*"
+            to: "ZoomIn_IN"
+            NumberAnimation {
+                target: child
+                properties: "scale"
+                duration: revealDuration
+            }
+        },
+        Transition {
+            from: "*"
+            to: "ZoomIn_OUT"
+            NumberAnimation {
+                target: child
+                properties: "scale"
+                duration: concealDuration
+            }
+        },
+
+        Transition {
+            from: "*"
+            to: "ZoomOut_IN"
+            NumberAnimation {
+                target: child
+                properties: "scale"
+                duration: revealDuration
+            }
+        },
+        Transition {
+            from: "*"
+            to: "ZoomOut_OUT"
+            SequentialAnimation {
+                NumberAnimation {
+                    target: child
+                    properties: "scale"
+                    duration: concealDuration
+                }
+                PropertyAnimation {
+                    target: child
+                    properties: "visible"
+                    duration: 1
+                }
             }
         }
     ]

@@ -1,3 +1,6 @@
 module OzoneCG
 Revealer 1.0 Revealer.qml
 ImageSequence 1.0 ImageSequence.qml
+Countdown 1.0 Countdown.qml
+CountdownHelper 1.0 CountdownHelper.qml
+FontText 1.0 FontText.qml
